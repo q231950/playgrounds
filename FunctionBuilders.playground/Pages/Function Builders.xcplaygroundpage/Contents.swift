@@ -1,22 +1,11 @@
+//: ### 2. Function Builders
+
 import Foundation
-
-//: [Previous](@previous)
-
-
 
 struct Fish {}
 
 struct Ocean {
     let fish: [Fish]
-}
-
-@_functionBuilder struct FishBuilder {
-
-    // SwiftUI example
-    // https://developer.apple.com/documentation/swiftui/viewbuilder/3278683-buildblock
-    static func buildBlock(_ fish: Fish...) -> [Fish] {
-        fish
-    }
 }
 
 extension Ocean {
@@ -29,6 +18,15 @@ extension Ocean {
     }
 }
 
+@_functionBuilder struct FishBuilder {
+
+    // SwiftUI example
+    // https://developer.apple.com/documentation/swiftui/viewbuilder/3278683-buildblock
+    static func buildBlock(_ fish: Fish...) -> [Fish] {
+        fish
+    }
+}
+
 let o = Ocean {
     Fish()
     Fish()
@@ -36,9 +34,8 @@ let o = Ocean {
 }
 
 print(o, terminator: "")
-
-
-
+//: Apply the `Ocean` to the problem we described earlier 🌊
+//:
 //: [Next](@next)
 
 
